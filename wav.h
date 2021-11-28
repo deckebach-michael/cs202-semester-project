@@ -1,7 +1,9 @@
 #ifndef SEMESTER_PROJECT
 #define SEMESTER_PROJECT
 
-#include "waveHeader.h"
+#include <string>
+
+#include "waveheader.h"
 
 class Wav {
 public:
@@ -16,6 +18,10 @@ public:
 public:
     unsigned char *getBuffer();
     int getBufferSize() const;
+
+    static bool is_wav(std::string file_name);
+    static bool is_valid(std::string file_name);
+
 };
 
 

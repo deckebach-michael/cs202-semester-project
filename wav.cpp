@@ -1,4 +1,3 @@
-#include <string>
 #include <fstream>
 #include <iostream>
 #include "wav.h"
@@ -20,7 +19,7 @@ unsigned char *Wav::getBuffer(){
 
 void Wav::writeFile(const std::string &outFileName) {
 
-    outFile.close();
+    // outFileName.close();
 }
 
 Wav::~Wav() {
@@ -31,3 +30,24 @@ Wav::~Wav() {
 int Wav::getBufferSize() const {
     return waveHeader.data_bytes;
 }
+
+bool Wav::is_wav(std::string file_name) {
+    if (file_name.length() >= 4) {
+        return (0 == file_name.compare(file_name.length() - 4, 4, ".wav"));
+    } else {
+        return false;
+    }
+}
+
+bool Wav::is_valid(std::string file_name) {
+    
+    std::ifstream fstrm(file_name);
+
+    if (is_wav(file_name) && (!fstrm.fail())) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
+
