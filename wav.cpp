@@ -108,7 +108,7 @@ int Wav::write(const std::string &file) {
                 for (int i = 0; i < header.data_bytes; i++) {
 
                     // Get the floating point value from the correct channel & vector index
-                    float tmpFloat = channels[1 % header.num_channels].getSample(i / header.num_channels);
+                    float tmpFloat = channels[i % header.num_channels].getSample(i / header.num_channels);
                     
                     // Convert to an integer between 0 and 255
                     int tmpInt = round(tmpFloat * (MAX_8BIT / 2)) + int(MAX_8BIT / 2);
@@ -128,12 +128,12 @@ int Wav::write(const std::string &file) {
                 for (int i = 0; i < header.data_bytes / 2; i++) {
 
                     // Get the floating point value from the correct channel & index
-                    float tmpFloat = channels[1 % header.num_channels].getSample(i / header.num_channels);
+                    float tmpFloat = channels[i % header.num_channels].getSample(i / header.num_channels);
                     
                     // Convert float to int from -32,768 to 32,757 and add to the buffer
                     buffer[i] = round(tmpFloat * MAX_16BIT);
                 }
-                
+
                 // Write the buffer to the file
                 fptr.write((char*) buffer, sizeof(buffer));
             }
