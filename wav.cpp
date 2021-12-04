@@ -106,6 +106,9 @@ int Wav::write(const std::string &file) {
                     temp = (temp * (MAX_8BIT / 2)) + (MAX_8BIT / 2);
                     buffer[i] = (unsigned char)temp;
                 }
+
+            // Write the data
+            fptr.write((char*) buffer, sizeof(buffer));
             }
             break;
         // case 16: // 16-bit files
@@ -125,6 +128,8 @@ int Wav::write(const std::string &file) {
         default:
             std::cout << "Unsupported bit depth" << std::endl;
             return 0;
+
+        
     }
 
     // Close the file
