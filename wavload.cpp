@@ -7,12 +7,12 @@
   typedef struct  WAV_HEADER
     {
       //Dr. Lancasters header if you need to know what stuff does
-        ushort         riff_header[4];  
+        ushort          riff_header[4];  
         unsigned int        wav_size;  
-        ushort         wave_header[4];   
-        ushort         fmt_header[4];   
+        ushort              wave_header[4];   
+        ushort              fmt_header[4];   
         unsigned int        fmt_chunk_size;  
-        ushort        audio_format;  
+        ushort              audio_format;  
         ushort        num_channels;   
         unsigned int        sample_rate; 
         unsigned int        byte_rate;   

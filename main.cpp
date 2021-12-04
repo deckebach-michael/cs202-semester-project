@@ -24,32 +24,41 @@ int main(void) {
 
         // Get source file and check for valid wav format
         file_name = Menu::getFileName();
-        if (!Wav::is_valid(file_name)) {
+        if (!Wav::isValid(file_name)) {
             continue;
         }
 
-        // TODO: Read file metadata
-        // TODO: Display file metadata
+        Wav myFile;
+        myFile.readFile(file_name);
 
-        // Present processer menu
-        processor_choice = Menu::displayProcesserMenu();
+        // Display file metadata
+        std::cout << "File: " << file_name << std::endl;
+        std::cout << "Sample Rate: " << myFile.getSampleRate() << std::endl;
+        std::cout << "Bits Per Sample: " << myFile.getBitDepth() << std::endl;
+        std::cout << "Stereo or Mono: " << myFile.getNumChannels() << std::endl;
 
-        // Get output file name
-        output_name = Menu::getOutputName();
+        std::cout << std::endl;
+ 
 
-        switch(processor_choice) {
-            case 1:
-                // TODO: normalization function
-                break;
-            case 2:
-                // TODO: echo function
-                break;
-            case 3:
-                // TODO: gain adjustment function
-                break;
-            default:
-                std::cout << "Sorry, invalid processor option selected" << std::endl;
-        }
+        // // Present processer menu
+        // processor_choice = Menu::displayProcesserMenu();
+
+        // // Get output file name
+        // output_name = Menu::getOutputName();
+
+        // switch(processor_choice) {
+        //     case 1:
+        //         // TODO: normalization function
+        //         break;
+        //     case 2:
+        //         // TODO: echo function
+        //         break;
+        //     case 3:
+        //         // TODO: gain adjustment function
+        //         break;
+        //     default:
+        //         std::cout << "Sorry, invalid processor option selected" << std::endl;
+        // }
 
         // TODO: Save file to output_name
     }

@@ -2,25 +2,31 @@
 #define SEMESTER_PROJECT
 
 #include <string>
+#include <vector>
 
 #include "waveheader.h"
 
 class Wav {
+// public:  // NEED TO DELETE
+//     unsigned char* buffer = nullptr;
+//     short* buffer16 = nullptr;
+
+    wav_header waveHeader;
+    std::vector<float> data;
 public:
     void readFile(const std::string &fileName);
     void writeFile(const std::string &outFileName);
-private:
-    unsigned char* buffer = NULL;
-    wav_header waveHeader;
-public:
     virtual ~Wav();
 
-public:
-    unsigned char *getBuffer();
+    // unsigned char *getBuffer();
     int getBufferSize() const;
 
-    static bool is_wav(std::string file_name);
-    static bool is_valid(std::string file_name);
+    static bool isWav(std::string file_name);
+    static bool isValid(std::string file_name);
+
+    int getSampleRate() const;
+    int getBitDepth() const;
+    int getNumChannels() const;
 
 };
 
