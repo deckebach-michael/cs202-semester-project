@@ -26,7 +26,10 @@ int main(void) {
         file_name = Menu::getFileName();
 
         Wav myFile;
-        myFile.read(file_name);
+        int readSuccess = myFile.read(file_name);
+        if (!readSuccess) {
+            continue;
+        }
 
         // Display file metadata
         std::cout << "File: " << file_name << std::endl;
@@ -36,10 +39,6 @@ int main(void) {
 
         // Present processer menu
         processor_choice = Menu::displayProcesserMenu();
-
-        // Get output file name
-        output_name = Menu::getOutputName();
-
         switch(processor_choice) {
             case 1:
                 // TODO: normalization function
@@ -54,7 +53,9 @@ int main(void) {
                 std::cout << "Sorry, invalid processor option selected" << std::endl;
         }
 
-        // TODO: Save file to output_name
+        // Get output file name
+        output_name = Menu::getOutputName();
+        myFile.write(output_name);
     }
 
     return 0;

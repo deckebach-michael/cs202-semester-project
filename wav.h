@@ -14,8 +14,8 @@ class Wav {
     wav_header header;
     std::vector<Channel> channels;
 public:
-    void read(const std::string &file);
-    // void write(const std::string &file);
+    int read(const std::string &file);
+    int write(const std::string &file);
 
     virtual ~Wav() = default;
 
