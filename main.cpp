@@ -22,43 +22,37 @@ int main(void) {
             return 1;
         }
 
-        // Get source file and check for valid wav format
+        // Get source file from user
         file_name = Menu::getFileName();
-        if (!Wav::isValid(file_name)) {
-            continue;
-        }
 
         Wav myFile;
-        myFile.readFile(file_name);
+        myFile.read(file_name);
 
         // Display file metadata
         std::cout << "File: " << file_name << std::endl;
         std::cout << "Sample Rate: " << myFile.getSampleRate() << std::endl;
         std::cout << "Bits Per Sample: " << myFile.getBitDepth() << std::endl;
-        std::cout << "Stereo or Mono: " << myFile.getNumChannels() << std::endl;
+        std::cout << "Stereo or Mono: " << myFile.getChannels() << std::endl; 
 
-        std::cout << std::endl;
- 
+        // Present processer menu
+        processor_choice = Menu::displayProcesserMenu();
 
-        // // Present processer menu
-        // processor_choice = Menu::displayProcesserMenu();
+        // Get output file name
+        output_name = Menu::getOutputName();
 
-        // // Get output file name
-        // output_name = Menu::getOutputName();
-
-        // switch(processor_choice) {
-        //     case 1:
-        //         // TODO: normalization function
-        //         break;
-        //     case 2:
-        //         // TODO: echo function
-        //         break;
-        //     case 3:
-        //         // TODO: gain adjustment function
-        //         break;
-        //     default:
-        //         std::cout << "Sorry, invalid processor option selected" << std::endl;
-        // }
+        switch(processor_choice) {
+            case 1:
+                // TODO: normalization function
+                break;
+            case 2:
+                // TODO: echo function
+                break;
+            case 3:
+                // TODO: gain adjustment function
+                break;
+            default:
+                std::cout << "Sorry, invalid processor option selected" << std::endl;
+        }
 
         // TODO: Save file to output_name
     }

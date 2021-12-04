@@ -5,28 +5,23 @@
 #include <vector>
 
 #include "waveheader.h"
+#include "channel.h"
+
+const int MAX_8BIT = 255;
+const int MAX_16BIT = 32768;
 
 class Wav {
-// public:  // NEED TO DELETE
-//     unsigned char* buffer = nullptr;
-//     short* buffer16 = nullptr;
-
-    wav_header waveHeader;
-    std::vector<float> data;
+    wav_header header;
+    std::vector<Channel> channels;
 public:
-    void readFile(const std::string &fileName);
-    void writeFile(const std::string &outFileName);
-    virtual ~Wav();
+    void read(const std::string &file);
+    // void write(const std::string &file);
 
-    // unsigned char *getBuffer();
-    int getBufferSize() const;
-
-    static bool isWav(std::string file_name);
-    static bool isValid(std::string file_name);
+    virtual ~Wav() = default;
 
     int getSampleRate() const;
     int getBitDepth() const;
-    int getNumChannels() const;
+    std::string getChannels() const;
 
 };
 
