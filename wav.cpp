@@ -45,12 +45,14 @@ int Wav::read(const std::string &file) {
     switch (header.bit_depth) {
         case 8: // 8-bit files
             {
-                // Read data into buffer as bytes
+                // Read data into a buffer as bytes
                 unsigned char buffer[header.data_bytes];
                 fptr.read((char*)buffer, header.data_bytes);
 
-                // Convert each byte to a -1 to 1 float and copy to proper channel
+                // Loop through every byte of data
                 for (int i = 0; i < header.data_bytes; i++) {
+
+                    // Converts each byte to a -1 to 1 float and copies to correct channel + index
                     channels[i % header.num_channels].setSample(
                         i / header.num_channels,
                         ((float)buffer[i] - (MAX_8BIT / 2)) / (MAX_8BIT / 2));
@@ -63,8 +65,10 @@ int Wav::read(const std::string &file) {
                 short buffer[header.data_bytes / 2];
                 fptr.read((char*)buffer, header.data_bytes);
 
-                // Convert each short to a -1 to 1 float and copy to proper channel
+                // Loop through each short (short = 2 bytes, so data_byes / 2 gives number of shorts)
                 for (int i = 0; i < header.data_bytes / 2; i++) {
+
+                    // Convert short to a -1 to 1 float and assign to correct channel + index
                     channels[i % header.num_channels].setSample(
                         i / header.num_channels,
                         ((float)buffer[i] / MAX_16BIT));
@@ -99,47 +103,41 @@ int Wav::write(const std::string &file) {
     switch (header.bit_depth) {
         case 8: // 8-bit files
             {
-                // Convert each byte back to unsigned chars
+                // Convert each byte back to unsigned chars in a buffer
                 unsigned char buffer[header.data_bytes];
                 for (int i = 0; i < header.data_bytes; i++) {
-                    // float temp = channels[1 % header.num_channels].getSample(
-                    //         i / header.num_channels);
-                    // int temp2 = rint(temp * (MAX_8BIT / 2));
-                    // temp2 = temp2 + (MAX_8BIT / 2);
-                    // buffer[i] = (unsigned char)temp2;
 
-                    int size = header.data_bytes;
-                    int chan = 1 % header.num_channels;
-                    int index = i / header.num_channels;
-
-                    float temp = channels[chan].getSample(index);
-                    int cnvrt = MAX_8BIT / 2;
-                    int temp2 = rint(temp * cnvrt);
-                    temp2 = temp2 + cnvrt;
+                    // Get the floating point value from the correct channel & vector index
+                    float tmpFloat = channels[1 % header.num_channels].getSample(i / header.num_channels);
                     
-                    unsigned char foo = (unsigned char) temp2;
-                    buffer[i] = foo;
+                    // Convert to an integer between 0 and 255
+                    int tmpInt = round(tmpFloat * (MAX_8BIT / 2)) + int(MAX_8BIT / 2);
 
+                    // Add the byte to the buffer
+                    buffer[i] = (unsigned char) tmpInt;
                 }
 
                 // Write the data
                 fptr.write((char*) buffer, sizeof(buffer));
             }
             break;
-        // case 16: // 16-bit files
-        //     {
-        //         // Read data into buffer as shorts
-        //         short buffer[header.data_bytes / 2];
-        //         fptr.read((char*)buffer, header.data_bytes);
+        case 16: // 16-bit files
+            {
+                // Convert each float back into a short held in a buffer
+                short buffer[header.data_bytes / 2];
+                for (int i = 0; i < header.data_bytes / 2; i++) {
 
-        //         // Convert each short to a -1 to 1 float and copy to proper channel
-        //         for (int i = 0; i < header.data_bytes / 2; i++) {
-        //             channels[i % header.num_channels].setSample(
-        //                 i / header.num_channels,
-        //                 ((float)buffer[i] / MAX_16BIT));
-        //         }
-        //     }
-        //     break;
+                    // Get the floating point value from the correct channel & index
+                    float tmpFloat = channels[1 % header.num_channels].getSample(i / header.num_channels);
+                    
+                    // Convert float to int from -32,768 to 32,757 and add to the buffer
+                    buffer[i] = round(tmpFloat * MAX_16BIT);
+                }
+                
+                // Write the buffer to the file
+                fptr.write((char*) buffer, sizeof(buffer));
+            }
+            break;
         default:
             std::cout << "Unsupported bit depth" << std::endl;
             return 0;
