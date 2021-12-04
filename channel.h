@@ -14,10 +14,6 @@ public:
         data = std::vector<float>(numSamples);
     }
 
-    int getChannelSize() const {
-        return data.size();
-    }
-
     float getSample(int index) const {
         return data[index];
     }

@@ -9,6 +9,9 @@
 
 int Wav::read(const std::string &file) {
 
+    // Set attribute inputFile, for tracking later
+    inputFile = file;
+
     // Open a file pointer (fp) to read in the file
     std::ifstream fptr(file, std::ios::binary | std::ios::in);
 
@@ -88,7 +91,7 @@ int Wav::read(const std::string &file) {
 int Wav::write(const std::string &file) {
 
     // Open a file pointer for writing
-    std::ofstream fptr(file + ".wav", std::ios::binary | std::ios::out);
+    std::ofstream fptr(file, std::ios::binary | std::ios::out);
 
     // Check to make sure the file opened correctly
     if (!fptr.is_open()) {
@@ -144,19 +147,18 @@ int Wav::write(const std::string &file) {
     }
 
     // Close the file
-    std::cout << file + ".wav written succesfully!" << std::endl;
     fptr.close();
     return 1;
 }
 
-
-
 int Wav::getSampleRate() const {
     return header.sample_rate;
 }
+
 int Wav::getBitDepth() const {
     return header.bit_depth;
 }
+
 std::string Wav::getChannels() const {
     switch (header.num_channels) {
         case 1:
@@ -168,4 +170,7 @@ std::string Wav::getChannels() const {
         default:
             return "Invalid";
     }
+}
+std::string Wav::getInputFile() const {
+    return inputFile;
 }
