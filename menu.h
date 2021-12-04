@@ -7,12 +7,15 @@
 class Menu {
 public:
     static int displayStart();
-    static std::string getFileName();
-    static int displayProcesserMenu();
-    static std::string getOutputName();
     static void shutdown();
-    static void invalidProcessorSelection();
+
+    static std::string getFileName();
     static void displayWavStats(Wav const &wave);
+
+    static int displayProcesserMenu();
+    static void invalidProcessorSelection();
+
+    static std::string getOutputName();
     static void displayWriteSuccess(std::string file);
 };
 

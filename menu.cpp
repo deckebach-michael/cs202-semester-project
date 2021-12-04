@@ -14,12 +14,24 @@ int Menu::displayStart() {
     return user_choice;
 }
 
+void Menu::shutdown() {
+    std::cout << "... goodbye ..." << std::endl;
+}
+
 std::string Menu::getFileName() {
     std::string file_name;
     std::cout << "-----------------------------------------" << std::endl;
     std::cout << "Enter a filename: ";
     std::cin >> file_name;
     return file_name;
+}
+
+void Menu::displayWavStats(Wav const &wave) {
+    std::cout << "-----------------------------------------" << std::endl;
+    std::cout << "File: " << wave.getInputFile() << std::endl;
+    std::cout << "Sample Rate: " << wave.getSampleRate() << std::endl;
+    std::cout << "Bits Per Sample: " << wave.getBitDepth() << std::endl;
+    std::cout << "Stereo or Mono: " << wave.getChannels() << std::endl; 
 }
 
 int Menu::displayProcesserMenu() {
@@ -37,6 +49,10 @@ int Menu::displayProcesserMenu() {
 
 }
 
+void Menu::invalidProcessorSelection() {
+    std::cout << "Sorry, invalid processor option selected" << std::endl;
+}
+
 std::string Menu::getOutputName() {
     std::string output_name;
 
@@ -45,22 +61,6 @@ std::string Menu::getOutputName() {
     std::cin >> output_name;
     
     return output_name;
-}
-
-void Menu::shutdown() {
-    std::cout << "... goodbye ..." << std::endl;
-}
-
-void Menu::invalidProcessorSelection() {
-    std::cout << "Sorry, invalid processor option selected" << std::endl;
-}
-
-void Menu::displayWavStats(Wav const &wave) {
-    std::cout << "-----------------------------------------" << std::endl;
-    std::cout << "File: " << wave.getInputFile() << std::endl;
-    std::cout << "Sample Rate: " << wave.getSampleRate() << std::endl;
-    std::cout << "Bits Per Sample: " << wave.getBitDepth() << std::endl;
-    std::cout << "Stereo or Mono: " << wave.getChannels() << std::endl; 
 }
 
 void Menu::displayWriteSuccess(std::string file) {

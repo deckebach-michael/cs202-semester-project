@@ -4,9 +4,14 @@
 #include <vector>
 
 
+/**
+ * @brief A channel is just a simple class consisting of one vector of
+ * floating point values used to represent the underlying data for one WAV
+ * file channel.
+ */
 
 class Channel {
-public: // TEMPORARY
+    
     std::vector<float> data;
 
 public:

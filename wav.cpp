@@ -6,7 +6,6 @@
 #include "wav.h"
 
 
-
 int Wav::read(const std::string &file) {
 
     // Set attribute inputFile, for tracking later
