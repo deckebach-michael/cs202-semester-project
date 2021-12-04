@@ -18,7 +18,7 @@ public:
         return data.size();
     }
 
-    int getSample(int index) const {
+    float getSample(int index) const {
         return data[index];
     }
 

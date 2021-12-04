@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <math.h>
 
 #include "wav.h"
 
@@ -101,14 +102,28 @@ int Wav::write(const std::string &file) {
                 // Convert each byte back to unsigned chars
                 unsigned char buffer[header.data_bytes];
                 for (int i = 0; i < header.data_bytes; i++) {
-                    float temp = channels[1 % header.num_channels].getSample(
-                            i / header.num_channels);
-                    temp = (temp * (MAX_8BIT / 2)) + (MAX_8BIT / 2);
-                    buffer[i] = (unsigned char)temp;
+                    // float temp = channels[1 % header.num_channels].getSample(
+                    //         i / header.num_channels);
+                    // int temp2 = rint(temp * (MAX_8BIT / 2));
+                    // temp2 = temp2 + (MAX_8BIT / 2);
+                    // buffer[i] = (unsigned char)temp2;
+
+                    int size = header.data_bytes;
+                    int chan = 1 % header.num_channels;
+                    int index = i / header.num_channels;
+
+                    float temp = channels[chan].getSample(index);
+                    int cnvrt = MAX_8BIT / 2;
+                    int temp2 = rint(temp * cnvrt);
+                    temp2 = temp2 + cnvrt;
+                    
+                    unsigned char foo = (unsigned char) temp2;
+                    buffer[i] = foo;
+
                 }
 
-            // Write the data
-            fptr.write((char*) buffer, sizeof(buffer));
+                // Write the data
+                fptr.write((char*) buffer, sizeof(buffer));
             }
             break;
         // case 16: // 16-bit files
