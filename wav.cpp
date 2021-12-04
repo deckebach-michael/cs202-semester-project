@@ -141,8 +141,6 @@ int Wav::write(const std::string &file) {
         default:
             std::cout << "Unsupported bit depth" << std::endl;
             return 0;
-
-        
     }
 
     // Close the file

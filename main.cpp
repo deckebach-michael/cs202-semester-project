@@ -32,6 +32,7 @@ int main(void) {
         }
 
         // Display file metadata
+        std::cout << "-----------------------------------------" << std::endl;
         std::cout << "File: " << file_name << std::endl;
         std::cout << "Sample Rate: " << myFile.getSampleRate() << std::endl;
         std::cout << "Bits Per Sample: " << myFile.getBitDepth() << std::endl;
@@ -51,6 +52,7 @@ int main(void) {
                 break;
             default:
                 std::cout << "Sorry, invalid processor option selected" << std::endl;
+                continue;
         }
 
         // Get output file name
