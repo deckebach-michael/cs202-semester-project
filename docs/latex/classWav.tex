@@ -1,0 +1,344 @@
+\hypertarget{classWav}{}\doxysection{Wav Class Reference}
+\label{classWav}\index{Wav@{Wav}}
+
+
+The main class used to represent WAV file data in memory. The vector of Channels is used to capture and organize the data for each channel in a WAV file (e.\+g., stereo = L \& R).  
+
+
+
+
+{\ttfamily \#include $<$wav.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classWav_af6f22a6df929e9995ef866678f36486d}{read}} (const std\+::string \&file)
+\begin{DoxyCompactList}\small\item\em takes a file address and reads all data into the \mbox{\hyperlink{classWav}{Wav}} object. Some error checking is included. Data will automatically be converted to floating point values in the range of -\/1 to 1. Data is also automatically parsed into the correct channels. 8-\/bit and 16-\/bit depth wav files are supported. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classWav_ab2d0a950b0329b40f6d33c29f234a5fc}{write}} (const std\+::string \&file)
+\begin{DoxyCompactList}\small\item\em takes a file name and writes data from the \mbox{\hyperlink{classWav}{Wav}} object into that file. Data is converted from floating point back into bytes in proper \mbox{\hyperlink{classWav}{Wav}} format. 8-\/bit and 16-\/bit supported. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWav_a5259ee715bb6cffce29eb10d590a7ea4}\label{classWav_a5259ee715bb6cffce29eb10d590a7ea4}} 
+virtual {\bfseries $\sim$\+Wav} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classWav}{Wav}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classWav_a7859a484d7fd993db7344b8fc201d1da}{get\+Sample\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em Get the Sample Rate of the \mbox{\hyperlink{classWav}{Wav}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classWav_a964321451ea52b3f957566bc567d577b}{get\+Bit\+Depth}} () const
+\begin{DoxyCompactList}\small\item\em Get the Bit Depth of the \mbox{\hyperlink{classWav}{Wav}} object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classWav_a2ccfb5597ec5b0726f346e61071c4757}{get\+Channels}} () const
+\begin{DoxyCompactList}\small\item\em Get the Channels of the \mbox{\hyperlink{classWav}{Wav}} object. Returns \char`\"{}\+Mono\char`\"{} if there is 1 channel, and \char`\"{}\+Stereo\char`\"{} if there are 2 channels. More than 2 channels is not supported. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classWav_ad0bc9e617555903a2531a1e7ad917d52}{get\+Input\+File}} () const
+\begin{DoxyCompactList}\small\item\em Get the Input File name of the \mbox{\hyperlink{classWav}{Wav}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main class used to represent WAV file data in memory. The vector of Channels is used to capture and organize the data for each channel in a WAV file (e.\+g., stereo = L \& R). 
+
+Definition at line \mbox{\hyperlink{wav_8h_source_l00019}{19}} of file \mbox{\hyperlink{wav_8h_source}{wav.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWav_a964321451ea52b3f957566bc567d577b}\label{classWav_a964321451ea52b3f957566bc567d577b}} 
+\index{Wav@{Wav}!getBitDepth@{getBitDepth}}
+\index{getBitDepth@{getBitDepth}!Wav@{Wav}}
+\doxysubsubsection{\texorpdfstring{getBitDepth()}{getBitDepth()}}
+{\footnotesize\ttfamily int Wav\+::get\+Bit\+Depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Bit Depth of the \mbox{\hyperlink{classWav}{Wav}} object. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{wav_8cpp_source_l00157}{157}} of file \mbox{\hyperlink{wav_8cpp_source}{wav.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157                            \{}
+\DoxyCodeLine{00158     \textcolor{keywordflow}{return} header.bit\_depth;}
+\DoxyCodeLine{00159 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classWav_a2ccfb5597ec5b0726f346e61071c4757}\label{classWav_a2ccfb5597ec5b0726f346e61071c4757}} 
+\index{Wav@{Wav}!getChannels@{getChannels}}
+\index{getChannels@{getChannels}!Wav@{Wav}}
+\doxysubsubsection{\texorpdfstring{getChannels()}{getChannels()}}
+{\footnotesize\ttfamily std\+::string Wav\+::get\+Channels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Channels of the \mbox{\hyperlink{classWav}{Wav}} object. Returns \char`\"{}\+Mono\char`\"{} if there is 1 channel, and \char`\"{}\+Stereo\char`\"{} if there are 2 channels. More than 2 channels is not supported. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{wav_8cpp_source_l00161}{161}} of file \mbox{\hyperlink{wav_8cpp_source}{wav.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00161                                  \{}
+\DoxyCodeLine{00162     \textcolor{keywordflow}{switch} (header.num\_channels) \{}
+\DoxyCodeLine{00163         \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00164             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mono"{}};}
+\DoxyCodeLine{00165             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00166         \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00167             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Stereo"{}};}
+\DoxyCodeLine{00168             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00169         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00170             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Invalid"{}};}
+\DoxyCodeLine{00171     \}}
+\DoxyCodeLine{00172 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classWav_ad0bc9e617555903a2531a1e7ad917d52}\label{classWav_ad0bc9e617555903a2531a1e7ad917d52}} 
+\index{Wav@{Wav}!getInputFile@{getInputFile}}
+\index{getInputFile@{getInputFile}!Wav@{Wav}}
+\doxysubsubsection{\texorpdfstring{getInputFile()}{getInputFile()}}
+{\footnotesize\ttfamily std\+::string Wav\+::get\+Input\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Input File name of the \mbox{\hyperlink{classWav}{Wav}} object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{wav_8cpp_source_l00173}{173}} of file \mbox{\hyperlink{wav_8cpp_source}{wav.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173                                   \{}
+\DoxyCodeLine{00174     \textcolor{keywordflow}{return} inputFile;}
+\DoxyCodeLine{00175 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classWav_a7859a484d7fd993db7344b8fc201d1da}\label{classWav_a7859a484d7fd993db7344b8fc201d1da}} 
+\index{Wav@{Wav}!getSampleRate@{getSampleRate}}
+\index{getSampleRate@{getSampleRate}!Wav@{Wav}}
+\doxysubsubsection{\texorpdfstring{getSampleRate()}{getSampleRate()}}
+{\footnotesize\ttfamily int Wav\+::get\+Sample\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Sample Rate of the \mbox{\hyperlink{classWav}{Wav}} object. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{wav_8cpp_source_l00153}{153}} of file \mbox{\hyperlink{wav_8cpp_source}{wav.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00153                              \{}
+\DoxyCodeLine{00154     \textcolor{keywordflow}{return} header.sample\_rate;}
+\DoxyCodeLine{00155 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classWav_af6f22a6df929e9995ef866678f36486d}\label{classWav_af6f22a6df929e9995ef866678f36486d}} 
+\index{Wav@{Wav}!read@{read}}
+\index{read@{read}!Wav@{Wav}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int Wav\+::read (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file }\end{DoxyParamCaption})}
+
+
+
+takes a file address and reads all data into the \mbox{\hyperlink{classWav}{Wav}} object. Some error checking is included. Data will automatically be converted to floating point values in the range of -\/1 to 1. Data is also automatically parsed into the correct channels. 8-\/bit and 16-\/bit depth wav files are supported. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the name of the \mbox{\hyperlink{classWav}{Wav}} file to be read into memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int returns 1 if successful, else returns 0 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{wav_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{wav_8cpp_source}{wav.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009                                    \{}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011     \textcolor{comment}{// Set attribute inputFile, for tracking later}}
+\DoxyCodeLine{00012     inputFile = file;}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014     \textcolor{comment}{// Open a file pointer (fp) to read in the file}}
+\DoxyCodeLine{00015     std::ifstream fptr(file, std::ios::binary | std::ios::in);}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017     \textcolor{comment}{// Check to make sure the file opened correctly}}
+\DoxyCodeLine{00018     \textcolor{keywordflow}{if} (!fptr.is\_open()) \{}
+\DoxyCodeLine{00019         std::cout << \textcolor{stringliteral}{"{}Could not open the file"{}} << std::endl;}
+\DoxyCodeLine{00020         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00021     \}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023     \textcolor{comment}{// Read in header data}}
+\DoxyCodeLine{00024     fptr.read((\textcolor{keywordtype}{char}*) \&header, \textcolor{keyword}{sizeof}(header));}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026     \textcolor{comment}{// File validity: check for RIFF header}}
+\DoxyCodeLine{00027     std::string riff\_header(header.riff\_header, 4);}
+\DoxyCodeLine{00028     \textcolor{keywordflow}{if} (riff\_header != \textcolor{stringliteral}{"{}RIFF"{}}) \{}
+\DoxyCodeLine{00029         std::cout << \textcolor{stringliteral}{"{}Not a RIFF file"{}} << std::endl;}
+\DoxyCodeLine{00030         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00031     \}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033     \textcolor{comment}{// File validity: check for WAVE header}}
+\DoxyCodeLine{00034     std::string wave\_header(header.wave\_header, 4);}
+\DoxyCodeLine{00035     \textcolor{keywordflow}{if} (wave\_header != \textcolor{stringliteral}{"{}WAVE"{}}) \{}
+\DoxyCodeLine{00036         std::cout << \textcolor{stringliteral}{"{}Not a WAVE file"{}} << std::endl;}
+\DoxyCodeLine{00037         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00038     \}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040     \textcolor{comment}{// Create channel vectors to hold wav data}}
+\DoxyCodeLine{00041     \textcolor{keywordtype}{int} samples = header.data\_bytes / header.sample\_alignment;}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < header.num\_channels; i++) \{}
+\DoxyCodeLine{00043         channels.emplace\_back(samples);}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046     \textcolor{comment}{// Read a chunk of data into a buffer, according to bit\_depth}}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{switch} (header.bit\_depth) \{}
+\DoxyCodeLine{00048         \textcolor{keywordflow}{case} 8: \textcolor{comment}{// 8-\/bit files}}
+\DoxyCodeLine{00049             \{}
+\DoxyCodeLine{00050                 \textcolor{comment}{// Read data into a buffer as bytes}}
+\DoxyCodeLine{00051                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} buffer[header.data\_bytes];}
+\DoxyCodeLine{00052                 fptr.read((\textcolor{keywordtype}{char}*)buffer, header.data\_bytes);}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00054                 \textcolor{comment}{// Loop through every byte of data}}
+\DoxyCodeLine{00055                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < header.data\_bytes; i++) \{}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057                     \textcolor{comment}{// Converts each byte to a -\/1 to 1 float and copies to correct channel + index}}
+\DoxyCodeLine{00058                     channels[i \% header.num\_channels].setSample(}
+\DoxyCodeLine{00059                         i / header.num\_channels,}
+\DoxyCodeLine{00060                         ((\textcolor{keywordtype}{float})buffer[i] -\/ (MAX\_8BIT / 2)) / (MAX\_8BIT / 2));}
+\DoxyCodeLine{00061                 \}}
+\DoxyCodeLine{00062             \}}
+\DoxyCodeLine{00063             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00064         \textcolor{keywordflow}{case} 16: \textcolor{comment}{// 16-\/bit files}}
+\DoxyCodeLine{00065             \{}
+\DoxyCodeLine{00066                 \textcolor{comment}{// Read data into buffer as shorts}}
+\DoxyCodeLine{00067                 \textcolor{keywordtype}{short} buffer[header.data\_bytes / 2];}
+\DoxyCodeLine{00068                 fptr.read((\textcolor{keywordtype}{char}*)buffer, header.data\_bytes);}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070                 \textcolor{comment}{// Loop through each short (short = 2 bytes, so data\_byes / 2 gives number of shorts)}}
+\DoxyCodeLine{00071                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < header.data\_bytes / 2; i++) \{}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073                     \textcolor{comment}{// Convert short to a -\/1 to 1 float and assign to correct channel + index}}
+\DoxyCodeLine{00074                     channels[i \% header.num\_channels].setSample(}
+\DoxyCodeLine{00075                         i / header.num\_channels,}
+\DoxyCodeLine{00076                         ((\textcolor{keywordtype}{float})buffer[i] / MAX\_16BIT));}
+\DoxyCodeLine{00077                 \}}
+\DoxyCodeLine{00078             \}}
+\DoxyCodeLine{00079             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00080         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00081             std::cout << \textcolor{stringliteral}{"{}Unsupported bit depth"{}} << std::endl;}
+\DoxyCodeLine{00082             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00083     \}}
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00085     \textcolor{comment}{// Close the file}}
+\DoxyCodeLine{00086     fptr.close();}
+\DoxyCodeLine{00087     \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00088 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classWav_ab2d0a950b0329b40f6d33c29f234a5fc}\label{classWav_ab2d0a950b0329b40f6d33c29f234a5fc}} 
+\index{Wav@{Wav}!write@{write}}
+\index{write@{write}!Wav@{Wav}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily int Wav\+::write (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file }\end{DoxyParamCaption})}
+
+
+
+takes a file name and writes data from the \mbox{\hyperlink{classWav}{Wav}} object into that file. Data is converted from floating point back into bytes in proper \mbox{\hyperlink{classWav}{Wav}} format. 8-\/bit and 16-\/bit supported. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the name of the \mbox{\hyperlink{classWav}{Wav}} file to be written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int returns 1 if successful, else returns 0 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{wav_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{wav_8cpp_source}{wav.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090                                     \{}
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{00092     \textcolor{comment}{// Open a file pointer for writing}}
+\DoxyCodeLine{00093     std::ofstream fptr(file, std::ios::binary | std::ios::out);}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095     \textcolor{comment}{// Check to make sure the file opened correctly}}
+\DoxyCodeLine{00096     \textcolor{keywordflow}{if} (!fptr.is\_open()) \{}
+\DoxyCodeLine{00097         std::cout << \textcolor{stringliteral}{"{}Could not open the file for writing"{}} << std::endl;}
+\DoxyCodeLine{00098         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00099     \}}
+\DoxyCodeLine{00100 }
+\DoxyCodeLine{00101     \textcolor{comment}{// Write the header}}
+\DoxyCodeLine{00102     fptr.write((\textcolor{keywordtype}{char}*) \&header, \textcolor{keyword}{sizeof}(header));}
+\DoxyCodeLine{00103     }
+\DoxyCodeLine{00104     \textcolor{comment}{// Organize the data in a buffer, according to bit\_depth and num\_channels}}
+\DoxyCodeLine{00105     \textcolor{keywordflow}{switch} (header.bit\_depth) \{}
+\DoxyCodeLine{00106         \textcolor{keywordflow}{case} 8: \textcolor{comment}{// 8-\/bit files}}
+\DoxyCodeLine{00107             \{}
+\DoxyCodeLine{00108                 \textcolor{comment}{// Convert each byte back to unsigned chars in a buffer}}
+\DoxyCodeLine{00109                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} buffer[header.data\_bytes];}
+\DoxyCodeLine{00110                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < header.data\_bytes; i++) \{}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112                     \textcolor{comment}{// Get the floating point value from the correct channel \& vector index}}
+\DoxyCodeLine{00113                     \textcolor{keywordtype}{float} tmpFloat = channels[i \% header.num\_channels].getSample(i / header.num\_channels);}
+\DoxyCodeLine{00114                     }
+\DoxyCodeLine{00115                     \textcolor{comment}{// Convert to an integer between 0 and 255}}
+\DoxyCodeLine{00116                     \textcolor{keywordtype}{int} tmpInt = round(tmpFloat * (MAX\_8BIT / 2)) + int(MAX\_8BIT / 2);}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118                     \textcolor{comment}{// Add the byte to the buffer}}
+\DoxyCodeLine{00119                     buffer[i] = (\textcolor{keywordtype}{unsigned} char) tmpInt;}
+\DoxyCodeLine{00120                 \}}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122                 \textcolor{comment}{// Write the data}}
+\DoxyCodeLine{00123                 fptr.write((\textcolor{keywordtype}{char}*) buffer, \textcolor{keyword}{sizeof}(buffer));}
+\DoxyCodeLine{00124             \}}
+\DoxyCodeLine{00125             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00126         \textcolor{keywordflow}{case} 16: \textcolor{comment}{// 16-\/bit files}}
+\DoxyCodeLine{00127             \{}
+\DoxyCodeLine{00128                 \textcolor{comment}{// Convert each float back into a short held in a buffer}}
+\DoxyCodeLine{00129                 \textcolor{keywordtype}{short} buffer[header.data\_bytes / 2];}
+\DoxyCodeLine{00130                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < header.data\_bytes / 2; i++) \{}
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00132                     \textcolor{comment}{// Get the floating point value from the correct channel \& index}}
+\DoxyCodeLine{00133                     \textcolor{keywordtype}{float} tmpFloat = channels[i \% header.num\_channels].getSample(i / header.num\_channels);}
+\DoxyCodeLine{00134                     }
+\DoxyCodeLine{00135                     \textcolor{comment}{// Convert float to int from -\/32,768 to 32,757 and add to the buffer}}
+\DoxyCodeLine{00136                     buffer[i] = round(tmpFloat * MAX\_16BIT);}
+\DoxyCodeLine{00137                 \}}
+\DoxyCodeLine{00138 }
+\DoxyCodeLine{00139                 \textcolor{comment}{// Write the buffer to the file}}
+\DoxyCodeLine{00140                 fptr.write((\textcolor{keywordtype}{char}*) buffer, \textcolor{keyword}{sizeof}(buffer));}
+\DoxyCodeLine{00141             \}}
+\DoxyCodeLine{00142             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00143         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00144             std::cout << \textcolor{stringliteral}{"{}Unsupported bit depth"{}} << std::endl;}
+\DoxyCodeLine{00145             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00146     \}}
+\DoxyCodeLine{00147 }
+\DoxyCodeLine{00148     \textcolor{comment}{// Close the file}}
+\DoxyCodeLine{00149     fptr.close();}
+\DoxyCodeLine{00150     \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00151 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+wav.\+h\item 
+wav.\+cpp\end{DoxyCompactItemize}

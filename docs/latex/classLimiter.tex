@@ -1,0 +1,74 @@
+\hypertarget{classLimiter}{}\doxysection{Limiter Class Reference}
+\label{classLimiter}\index{Limiter@{Limiter}}
+Inheritance diagram for Limiter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLimiter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLimiter_a3fcc37e0ac0d7eb6ea9ce45fc8d78e99}{limit\+Func}} (unsigned char $\ast$, int)
+\item 
+void \mbox{\hyperlink{classLimiter_a226a4a5c3890a5dfbe35220595c3df2b}{process\+Buffer}} (unsigned char $\ast$buffer, int buffer\+Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{limiter_8h_source_l00009}{9}} of file \mbox{\hyperlink{limiter_8h_source}{limiter.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLimiter_a3fcc37e0ac0d7eb6ea9ce45fc8d78e99}\label{classLimiter_a3fcc37e0ac0d7eb6ea9ce45fc8d78e99}} 
+\index{Limiter@{Limiter}!limitFunc@{limitFunc}}
+\index{limitFunc@{limitFunc}!Limiter@{Limiter}}
+\doxysubsubsection{\texorpdfstring{limitFunc()}{limitFunc()}}
+{\footnotesize\ttfamily void Limiter\+::limit\+Func (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{limiter_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{limiter_8cpp_source}{limiter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004                                                             \{}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < bufferSize; i++)\{}
+\DoxyCodeLine{00007         \textcolor{keywordflow}{if}(buffer[i] > 255 * limitVal)\{}
+\DoxyCodeLine{00008             buffer[i] = 255 * limitVal;}
+\DoxyCodeLine{00009         \}}
+\DoxyCodeLine{00010     \}}
+\DoxyCodeLine{00011 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classLimiter_a226a4a5c3890a5dfbe35220595c3df2b}\label{classLimiter_a226a4a5c3890a5dfbe35220595c3df2b}} 
+\index{Limiter@{Limiter}!processBuffer@{processBuffer}}
+\index{processBuffer@{processBuffer}!Limiter@{Limiter}}
+\doxysubsubsection{\texorpdfstring{processBuffer()}{processBuffer()}}
+{\footnotesize\ttfamily void Limiter\+::process\+Buffer (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classProcessor}{Processor}}.
+
+
+
+Definition at line \mbox{\hyperlink{limiter_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{limiter_8cpp_source}{limiter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013                                                                 \{}
+\DoxyCodeLine{00014     limitFunc(buffer, bufferSize);}
+\DoxyCodeLine{00015 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+limiter.\+h\item 
+limiter.\+cpp\end{DoxyCompactItemize}

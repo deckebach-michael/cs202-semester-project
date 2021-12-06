@@ -1,0 +1,52 @@
+\hypertarget{waveheader_8h_source}{}\doxysection{waveheader.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00002}00002 \textcolor{comment}{// Created by Michael Deckebach on 11/28/21.}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00005}00005 \textcolor{preprocessor}{\#ifndef WAVE\_HEADER\_WAVE\_HEADER\_H}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00006}00006 \textcolor{preprocessor}{\#define WAVE\_HEADER\_WAVE\_HEADER\_H}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00008}00008 \textcolor{comment}{// This header copied from https://gist.github.com/Jon-\/Schneider/8b7c53d27a7a13346a643dac9c19d34f}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00009}00009 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00010}00010 \textcolor{comment}{ * https://docs.fileformat.com/audio/wav/}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00011}00011 \textcolor{comment}{ * Positions    Sample Value    Description}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00012}00012 \textcolor{comment}{1 -\/ 4   “RIFF”  Marks the file as a riff file. Characters are each 1 byte long.}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00013}00013 \textcolor{comment}{5 -\/ 8   File size (integer) Size of the overall file -\/ 8 bytes, in bytes (32-\/bit integer). Typically, you’d fill this in after creation.}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00014}00014 \textcolor{comment}{9 -\/12   “WAVE”  File Type Header. For our purposes, it always equals “WAVE”.}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00015}00015 \textcolor{comment}{13-\/16   “fmt "{}  Format chunk marker. Includes trailing null}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00016}00016 \textcolor{comment}{17-\/20   16  Length of format data as listed above}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00017}00017 \textcolor{comment}{21-\/22   1   Type of format (1 is PCM) -\/ 2 byte integer}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00018}00018 \textcolor{comment}{23-\/24   2   Number of Channels -\/ 2 byte integer}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00019}00019 \textcolor{comment}{25-\/28   44100   Sample Rate -\/ 32 byte integer. Common values are 44100 (CD), 48000 (DAT). Sample Rate = Number of Samples per second, or Hertz.}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00020}00020 \textcolor{comment}{29-\/32   176400  (Sample Rate * BitsPerSample * Channels) / 8.}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00021}00021 \textcolor{comment}{33-\/34   4   (BitsPerSample * Channels) / 8.1 -\/ 8 bit mono2 -\/ 8 bit stereo/16 bit mono4 -\/ 16 bit stereo}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00022}00022 \textcolor{comment}{35-\/36   16  Bits per sample}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00023}00023 \textcolor{comment}{37-\/40   “data”  “data” chunk header. Marks the beginning of the data section.}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00024}00024 \textcolor{comment}{41-\/44   File size (data)    Size of the data section.}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00025}00025 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00026}\mbox{\hyperlink{structwav__header}{00026}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structwav__header}{wav\_header}} \{}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00027}00027     \textcolor{comment}{// RIFF Header}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00028}00028     \textcolor{keywordtype}{char} riff\_header[4];    \textcolor{comment}{// Contains "{}RIFF"{}}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00029}00029     \textcolor{keywordtype}{int} wav\_size;           \textcolor{comment}{// Size of the wav portion of the file, which follows the first 8 bytes. File size -\/ 8}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00030}00030     \textcolor{keywordtype}{char} wave\_header[4];    \textcolor{comment}{// Contains "{}WAVE"{}}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00032}00032     \textcolor{comment}{// Format Header}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00033}00033     \textcolor{keywordtype}{char} fmt\_header[4];     \textcolor{comment}{// Contains "{}fmt "{} (includes trailing space)}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00034}00034     \textcolor{keywordtype}{int} fmt\_chunk\_size;     \textcolor{comment}{// Should be 16 for PCM}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00035}00035     \textcolor{keywordtype}{short} audio\_format;     \textcolor{comment}{// Should be 1 for PCM. 3 for IEEE Float}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00036}00036     \textcolor{keywordtype}{short} num\_channels;     \textcolor{comment}{// Mono = 1, Stereo = 2}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00037}00037     \textcolor{keywordtype}{int} sample\_rate;}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00038}00038     \textcolor{keywordtype}{int} byte\_rate;          \textcolor{comment}{// Number of bytes per second. sample\_rate * num\_channels * Bytes Per Sample}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00039}00039     \textcolor{keywordtype}{short} sample\_alignment; \textcolor{comment}{// num\_channels * Bytes Per Sample}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00040}00040     \textcolor{keywordtype}{short} bit\_depth;        \textcolor{comment}{// Number of bits per sample}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00042}00042     \textcolor{comment}{// Data}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00043}00043     \textcolor{keywordtype}{char} data\_header[4];    \textcolor{comment}{// Contains "{}data"{}}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00044}00044     \textcolor{keywordtype}{int} data\_bytes;         \textcolor{comment}{// Number of bytes in data. Number of samples * num\_channels * sample byte size}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00045}00045     \textcolor{comment}{// char bytes[];        // Remainder of wave file is bytes}}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00046}00046 \} \mbox{\hyperlink{structwav__header}{wav\_header}};}
+\DoxyCodeLine{\Hypertarget{waveheader_8h_source_l00047}00047 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//WAVE\_HEADER\_WAVE\_HEADER\_H}}
+
+\end{DoxyCode}

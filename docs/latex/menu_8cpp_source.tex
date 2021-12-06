@@ -1,0 +1,74 @@
+\hypertarget{menu_8cpp_source}{}\doxysection{menu.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}menu.h"{}}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00005}\mbox{\hyperlink{classMenu_aa95b1883799534650a1e11fae36185fe}{00005}} \textcolor{keywordtype}{int} \mbox{\hyperlink{classMenu_aa95b1883799534650a1e11fae36185fe}{Menu::displayStart}}() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00006}00006     \textcolor{keywordtype}{int} user\_choice;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00008}00008     std::cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00009}00009     std::cout << \textcolor{stringliteral}{"{}1. Start program"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00010}00010     std::cout << \textcolor{stringliteral}{"{}2. Quit"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00011}00011     std::cout << \textcolor{stringliteral}{"{}Select a menu option: "{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00012}00012     std::cin >> user\_choice;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00014}00014     \textcolor{keywordflow}{return} user\_choice;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00015}00015 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00017}\mbox{\hyperlink{classMenu_a999a8b12f7d1e6572c65f1a97cb3163a}{00017}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classMenu_a999a8b12f7d1e6572c65f1a97cb3163a}{Menu::shutdown}}() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00018}00018     std::cout << \textcolor{stringliteral}{"{}... goodbye ..."{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00019}00019 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00021}\mbox{\hyperlink{classMenu_aba974a41ba50d42affe35c4d389099d5}{00021}} std::string \mbox{\hyperlink{classMenu_aba974a41ba50d42affe35c4d389099d5}{Menu::getFileName}}() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00022}00022     std::string file\_name;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00023}00023     std::cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00024}00024     std::cout << \textcolor{stringliteral}{"{}Enter a filename: "{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00025}00025     std::cin >> file\_name;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00026}00026     \textcolor{keywordflow}{return} file\_name;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00027}00027 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00029}\mbox{\hyperlink{classMenu_afa4c62e97bc7b27a420f18d342593fd5}{00029}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classMenu_afa4c62e97bc7b27a420f18d342593fd5}{Menu::displayWavStats}}(\mbox{\hyperlink{classWav}{Wav}} \textcolor{keyword}{const} \&wave) \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00030}00030     std::cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00031}00031     std::cout << \textcolor{stringliteral}{"{}File: "{}} << wave.\mbox{\hyperlink{classWav_ad0bc9e617555903a2531a1e7ad917d52}{getInputFile}}() << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00032}00032     std::cout << \textcolor{stringliteral}{"{}Sample Rate: "{}} << wave.\mbox{\hyperlink{classWav_a7859a484d7fd993db7344b8fc201d1da}{getSampleRate}}() << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00033}00033     std::cout << \textcolor{stringliteral}{"{}Bits Per Sample: "{}} << wave.\mbox{\hyperlink{classWav_a964321451ea52b3f957566bc567d577b}{getBitDepth}}() << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00034}00034     std::cout << \textcolor{stringliteral}{"{}Stereo or Mono: "{}} << wave.\mbox{\hyperlink{classWav_a2ccfb5597ec5b0726f346e61071c4757}{getChannels}}() << std::endl; }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00035}00035 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00037}\mbox{\hyperlink{classMenu_a1df45a18bfcdea8a1c2f103fcdfe6dad}{00037}} \textcolor{keywordtype}{int} \mbox{\hyperlink{classMenu_a1df45a18bfcdea8a1c2f103fcdfe6dad}{Menu::displayProcesserMenu}}() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00038}00038     \textcolor{keywordtype}{int} processor\_choice;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00040}00040     std::cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00041}00041     std::cout << \textcolor{stringliteral}{"{}Audio Effect Options"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00042}00042     std::cout << \textcolor{stringliteral}{"{}1. Normalization"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00043}00043     std::cout << \textcolor{stringliteral}{"{}2. Echo"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00044}00044     std::cout << \textcolor{stringliteral}{"{}3. Gain Adjustment"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00045}00045     std::cout << \textcolor{stringliteral}{"{}Select the audio effect to apply: "{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00046}00046     std::cin >> processor\_choice;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00048}00048     \textcolor{keywordflow}{return} processor\_choice;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00050}00050 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00052}\mbox{\hyperlink{classMenu_acd73bade88b21f9d977167c4d34f2df6}{00052}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classMenu_acd73bade88b21f9d977167c4d34f2df6}{Menu::invalidProcessorSelection}}() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00053}00053     std::cout << \textcolor{stringliteral}{"{}Sorry, invalid processor option selected"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00054}00054 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00056}\mbox{\hyperlink{classMenu_ad97c2e946830bfe590f3758f34a13ed3}{00056}} std::string \mbox{\hyperlink{classMenu_ad97c2e946830bfe590f3758f34a13ed3}{Menu::getOutputName}}() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00057}00057     std::string output\_name;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00059}00059     std::cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00060}00060     std:: cout << \textcolor{stringliteral}{"{}Output file name (include .wav): "{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00061}00061     std::cin >> output\_name;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00062}00062     }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00063}00063     \textcolor{keywordflow}{return} output\_name;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00064}00064 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00066}\mbox{\hyperlink{classMenu_ae73f0436634f83a46252eb3b23fd0745}{00066}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classMenu_ae73f0436634f83a46252eb3b23fd0745}{Menu::displayWriteSuccess}}(std::string file) \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00067}00067     std::cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00068}00068     std::cout << file + \textcolor{stringliteral}{"{} written succesfully!"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00069}00069 \}}
+
+\end{DoxyCode}

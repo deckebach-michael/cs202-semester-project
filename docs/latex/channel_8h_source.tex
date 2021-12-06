@@ -1,0 +1,32 @@
+\hypertarget{channel_8h_source}{}\doxysection{channel.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef CHANNEL\_H}}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00002}00002 \textcolor{preprocessor}{\#define CHANNEL\_H}}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00013}\mbox{\hyperlink{classChannel}{00013}} \textcolor{keyword}{class }\mbox{\hyperlink{classChannel}{Channel}} \{}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00014}00014     }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00015}00015     std::vector<float> data;}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00017}00017 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00025}\mbox{\hyperlink{classChannel_ab14540dea9aa04d305e3b2ba7d1d2bd6}{00025}}     \mbox{\hyperlink{classChannel_ab14540dea9aa04d305e3b2ba7d1d2bd6}{Channel}}(\textcolor{keywordtype}{int} numSamples) \{}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00026}00026         data = std::vector<float>(numSamples);}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00027}00027     \}}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00035}\mbox{\hyperlink{classChannel_ad72d7442f4baaba164a327845f812f0b}{00035}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classChannel_ad72d7442f4baaba164a327845f812f0b}{getSample}}(\textcolor{keywordtype}{int} index)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00036}00036         \textcolor{keywordflow}{return} data[index];}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00037}00037     \}}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00045}\mbox{\hyperlink{classChannel_a65024be4c68d88184cf5ca82fe515649}{00045}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{classChannel_a65024be4c68d88184cf5ca82fe515649}{setSample}}(\textcolor{keywordtype}{int} index, \textcolor{keywordtype}{float} value) \{}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00046}00046         data[index] = value;}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00047}00047     \}}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00048}00048 \};}
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{channel_8h_source_l00051}00051 \textcolor{preprocessor}{\#endif }}
+
+\end{DoxyCode}
