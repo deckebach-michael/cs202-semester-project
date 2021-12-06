@@ -8,11 +8,11 @@ Moreno Moises, Michael Deckebach, Thomas Turngren
 
 Team Contributions*
 
-Moreno Moises, UI and Processor
+Moreno Moises, Processor
 
-Micheal Deckeback, File io and Consolidating code
+Micheal Deckeback, File I/O and UI
 
-Thomas Turngren, File io and Ulm Diagram 
+Thomas Turngren, Ulm Diagram 
 
 ![diagram](https://user-images.githubusercontent.com/89604178/144772221-22ac35ea-931c-42cf-afe9-8c31826ea8cf.png)
 
