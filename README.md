@@ -12,7 +12,7 @@ Moreno Moises, Processor
 
 Micheal Deckeback, File I/O and UI
 
-Thomas Turngren, Ulm Diagram 
+Thomas Turngren, File I/O and Documentation (UML Diagram, Doxygen)
 
 ![diagram](https://user-images.githubusercontent.com/89604178/144772221-22ac35ea-931c-42cf-afe9-8c31826ea8cf.png)
 
