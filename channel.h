@@ -49,6 +49,11 @@ public:
         data[index] = value;
     }
 
+    /**
+     * @brief returns the number of samples (lenght) in a Channel
+     * 
+     * @return int 
+     */
     int length() {
         return data.size();
     }

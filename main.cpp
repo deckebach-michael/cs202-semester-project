@@ -49,6 +49,7 @@ int main(void) {
                 break;
             case 2:
                 // TODO: echo function
+                std::cout << "Sorry:  functionality still under construction. Check back later!" << std::endl;
                 break;
             case 3:
                 {

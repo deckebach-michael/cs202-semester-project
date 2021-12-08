@@ -75,6 +75,12 @@ public:
      */
     static void displayWriteSuccess(std::string file);
 
+    /**
+     * @brief Gets a float between 0.0 and 2.0 from the user on the 
+     * command line
+     * 
+     * @return float 
+     */
     static float getFloat();
 };
 

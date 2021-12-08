@@ -16,6 +16,12 @@
  */
 class Normalization : public Processor {
 public:
+
+	/**
+	 * @brief applies a normalization processing to the wav file
+	 * 
+	 * @param wave 
+	 */
 	static void process(Wav &wave);
 };
 

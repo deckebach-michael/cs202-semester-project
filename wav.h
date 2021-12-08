@@ -84,8 +84,20 @@ public:
      */
     std::string getInputFile() const;
 
+    /**
+     * @brief returns the number of channels in the wav object
+     * 
+     * @return int 
+     */
     int getNumChannels() const;
 
+    /**
+     * @brief returns a Channel object, located at the specified
+     * index of the wav object
+     * 
+     * @param index - the Channel to be returned
+     * @return Channel& 
+     */
     Channel& getChannel(int index);
 
 };
