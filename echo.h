@@ -6,7 +6,7 @@
 
 
 #include <iostream>
-#include "Processor.h"
+#include "processor.h"
 /**
  * @brief The echo class is used to alter WAV file data in memory to creat an echo.
  *
