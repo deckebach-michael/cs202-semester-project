@@ -14,7 +14,7 @@ Micheal Deckeback, File I/O and UI
 
 Thomas Turngren, File I/O and Documentation (UML Diagram, Doxygen)
 
-![diagram](https://user-images.githubusercontent.com/89604178/144772221-22ac35ea-931c-42cf-afe9-8c31826ea8cf.png)
+![diagram](https://user-images.githubusercontent.com/89604178/145154961-c9591cd5-f1df-4907-a598-78251cb7e342.png)
 
 Functionality*
 
