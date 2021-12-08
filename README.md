@@ -8,9 +8,9 @@ Moreno Moises, Michael Deckebach, Thomas Turngren
 
 **Team Contributions**
 
-Moreno Moises, Processor
+Moises Moreno, Processor
 
-Micheal Deckebach, File I/O, UI, and some Processing
+Michael Deckebach, File I/O, UI, and some Processing
 
 Thomas Turngren, File I/O and Documentation (UML Diagram, Doxygen)
 
