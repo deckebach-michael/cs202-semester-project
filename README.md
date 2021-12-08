@@ -1,4 +1,4 @@
-**CS202 SEMESTER PROJECT**
+# CS202 SEMESTER PROJECT
 
 This is the Basic Challenge on CS 202 Semester project 
 
@@ -39,3 +39,7 @@ figure this one out for us.
 **Instructions**
 
 Run ```Make WavModifier``` to generate the executable.
+
+**Documentation**
+
+[Click here for full documentation](https://deckebach-michael.github.io/cs202-semester-project/)
