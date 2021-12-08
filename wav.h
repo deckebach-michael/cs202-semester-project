@@ -1,3 +1,6 @@
+/** @file wav.h
+* Used to read and write wav files.
+*/
 #ifndef WAV_H
 #define WAV_H
 

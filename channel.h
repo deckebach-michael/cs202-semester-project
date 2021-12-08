@@ -1,3 +1,6 @@
+/** @file channel.h
+* echo used to alter the wav file to creat an echo.
+*/
 #ifndef CHANNEL_H
 #define CHANNEL_H
 

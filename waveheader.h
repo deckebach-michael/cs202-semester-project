@@ -1,3 +1,6 @@
+/** @file waveheader.h
+* echo used to alter the wav file to creat an echo.
+*/
 //
 // Created by Michael Deckebach on 11/28/21.
 //

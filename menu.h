@@ -1,3 +1,6 @@
+/** @file menue.h
+* echo used to alter the wav file to creat an echo.
+*/
 #ifndef MENU_H
 #define MENU_H
 
