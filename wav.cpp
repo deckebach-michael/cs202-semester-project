@@ -178,6 +178,6 @@ int Wav::getNumChannels() const {
     return header.num_channels;
 }
 
-Channel Wav::getChannel(int index) {
+Channel& Wav::getChannel(int index) {
     return channels[index];
 }

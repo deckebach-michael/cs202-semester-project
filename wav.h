@@ -86,7 +86,7 @@ public:
 
     int getNumChannels() const;
 
-    Channel getChannel(int index);
+    Channel& getChannel(int index);
 
 };
 
