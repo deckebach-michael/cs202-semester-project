@@ -67,3 +67,18 @@ void Menu::displayWriteSuccess(std::string file) {
     std::cout << "-----------------------------------------" << std::endl;
     std::cout << file + " written succesfully!" << std::endl;
 }
+
+
+float Menu::getFloat() {
+    
+    float factor = -1.0;
+
+    std::cout << "-----------------------------------------" << std::endl;
+    while(factor > 2.0 || factor < 0.0) {
+        std::cout << "This program supports scaling between 0.0 (silence) and 2.0 (2x amplitude)." << std::endl;
+        std::cout << "Please enter an adjustment factor between 0.0 and 2.0: ";
+        std::cin >> factor;
+    }
+
+    return factor;
+}

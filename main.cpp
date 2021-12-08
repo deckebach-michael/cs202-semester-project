@@ -1,9 +1,11 @@
-#include "menu.h"
-#include "wav.h"
-
 #include <iostream>
 #include <string>
 #include <fstream>
+
+#include "menu.h"
+#include "wav.h"
+#include "normalization.h"
+#include "gain.h"
 
 
 int main(void) {
@@ -43,13 +45,16 @@ int main(void) {
         processor_choice = Menu::displayProcesserMenu();
         switch(processor_choice) {
             case 1:
-                // TODO: normalization function
+                Normalization::process(wave);
                 break;
             case 2:
                 // TODO: echo function
                 break;
             case 3:
-                // TODO: gain adjustment function
+                {
+                float factor = Menu::getFloat();
+                Gain::process(wave, factor);
+                }
                 break;
             default:
                 Menu::invalidProcessorSelection();

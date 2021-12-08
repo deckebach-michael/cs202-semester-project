@@ -74,6 +74,8 @@ public:
      * @param file the name of the file that has been successfully written.
      */
     static void displayWriteSuccess(std::string file);
+
+    static float getFloat();
 };
 
 #endif // MENU_H

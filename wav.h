@@ -83,6 +83,11 @@ public:
      * @return std::string 
      */
     std::string getInputFile() const;
+
+    int getNumChannels() const;
+
+    Channel getChannel(int index);
+
 };
 
 #endif 

@@ -48,6 +48,10 @@ public:
     void setSample(int index, float value) {
         data[index] = value;
     }
+
+    int length() {
+        return data.size();
+    }
 };
 
 

@@ -173,3 +173,11 @@ std::string Wav::getChannels() const {
 std::string Wav::getInputFile() const {
     return inputFile;
 }
+
+int Wav::getNumChannels() const {
+    return header.num_channels;
+}
+
+Channel Wav::getChannel(int index) {
+    return channels[index];
+}
